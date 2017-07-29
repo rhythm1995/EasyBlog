@@ -85,27 +85,30 @@ header {
 </template>
 
 <script>
-export default {
+//注册组件
+import ArticlePage from '../src/components/ArticlePage';
+var articlePage = Vue.extebd(ArticlePage);
 
+export default {
     data() {
         return {
             headerTopic: 'Bugzhang的博客',
             headerSign: 'Keep clam and carry on',
-            headerMenus:[{
-                text:'主页 | ',
-                url:'http://bugzhang.com/'
-            },{
-                text:'留言板 | ',
-                url:'http://bugzhang.com/'
-            },{
-                text:'好友链接 | ',
-                url:'http://bugzhang.com/'
-            },{
-                text:'关于我 | ',
-                url:'http://bugzhang.com/'
-            },{
-                text:'作品集',
-                url:'http://bugzhang.com/'
+            headerMenus: [{
+                text: '主页 | ',
+                url: 'http://bugzhang.com/'
+            }, {
+                text: '留言板 | ',
+                url: 'http://bugzhang.com/'
+            }, {
+                text: '好友链接 | ',
+                url: 'http://bugzhang.com/'
+            }, {
+                text: '关于我 | ',
+                url: 'http://bugzhang.com/'
+            }, {
+                text: '作品集',
+                url: 'http://bugzhang.com/'
             }]
         }
     },

@@ -13,7 +13,6 @@ Vue.use(Vuex);
 
 Vue.use(iView);
 
-// 注册组件
 
 
 // 路由配置
