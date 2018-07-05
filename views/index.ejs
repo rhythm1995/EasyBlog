@@ -1,0 +1,234 @@
+<% include top.ejs %>
+
+    <body>
+        <div class="get">
+            <div class="am-g">
+                <div class="am-u-lg-12">
+                    <h1 class="get-title">赵思华的个人主页</h1>
+                    <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
+                    am-avg-md-3 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview: true }">
+                        <li>
+                            <div class="am-gallery-item">
+                                <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
+                                    <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想" />
+                                    <h3 class="am-gallery-title">远方 有一个地方 那里种有我们的梦想</h3>
+                                    <div class="am-gallery-desc">2375-09-26</div>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="am-gallery-item">
+                                <a href="http://s.amazeui.org/media/i/demos/bing-2.jpg" class="">
+                                    <img src="http://s.amazeui.org/media/i/demos/bing-2.jpg" alt="某天 也许会相遇 相遇在这个好地方" />
+                                    <h3 class="am-gallery-title">某天 也许会相遇 相遇在这个好地方</h3>
+                                    <div class="am-gallery-desc">2375-09-26</div>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="am-gallery-item">
+                                <a href="http://s.amazeui.org/media/i/demos/bing-3.jpg" class="">
+                                    <img src="http://s.amazeui.org/media/i/demos/bing-3.jpg" alt="不要太担心 只因为我相信" />
+                                    <h3 class="am-gallery-title">不要太担心 只因为我相信</h3>
+                                    <div class="am-gallery-desc">2375-09-26</div>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="am-gallery-item">
+                                <a href="http://s.amazeui.org/media/i/demos/bing-4.jpg" class="">
+                                    <img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" alt="终会走过这条遥远的道路" />
+                                    <h3 class="am-gallery-title">终会走过这条遥远的道路</h3>
+                                    <div class="am-gallery-desc">2375-09-26</div>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-md-12" id="basic">
+        </div>
+        <div class="am-u-md-12">
+            <div class="am-panel am-panel-default">
+                <div class="am-panel-hd">
+                    <h4 class="am-panel-title" data-am-collapse="{ target: '#combo'}">
+                        工作信息-赵思华
+                    </h4>
+                </div>
+                <div id="combo" class="am-panel-collapse am-collapse am-in">
+                    <div class="am-panel-bd">
+                        <div id="combo-main-content" render="true">
+                            <table width="100%" class="am-table am-table-bd am-table-bdrs am-table-striped am-table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>时间段</th>
+                                        <th>工作公司</th>
+                                        <th>工作内容</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="work">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-md-12">
+            <div class="am-panel am-panel-default">
+                <div class="am-panel-hd">
+                    <h4 class="am-panel-title" data-am-collapse="{ target: '#combo'}">
+                        奖励信息-赵思华
+                    </h4>
+                </div>
+                <div id="combo" class="am-panel-collapse am-collapse am-in">
+                    <div class="am-panel-bd">
+                        <div id="combo-main-content" render="true">
+                            <table width="100%" class="am-table am-table-bd am-table-bdrs am-table-striped am-table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>时间</th>
+                                        <th>奖励</th>
+                                        <th>奖励内容</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="prize">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.js"></script>
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+        <script>
+            (function renderBasic() {
+                $.ajax({
+                    type: "GET",
+                    url: "getUserList",
+                    async: false,
+                    timeout: 5000,
+                    dataType: 'json',
+                    success: function (data) {
+                        for (var i = 0, len = data.length; i < len; i++) {
+                            var onedata = data[i];
+                            $("#basic").append(
+                                `
+                                <div class="am-panel am-panel-default">
+                <div class="am-panel-hd">
+                    <h4 class="am-panel-title" data-am-collapse="{ target: '#combo'}">
+                        基本信息-${onedata.user_name}
+                    </h4>
+                </div>
+                <div id="combo" class="am-panel-collapse am-collapse am-in">
+                    <div class="am-panel-bd">
+                        <div id="combo-main-content" render="true">
+                            <table width="100%" class="am-table am-table-bd am-table-bdrs am-table-striped am-table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>项目</th>
+                                        <th>内容</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                        <td>用户ID</td>
+                                        <td>${onedata.user_id}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>用户名</td>
+                                        <td>${onedata.user_name}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>用户手机</td>
+                                        <td>${onedata.user_phone}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>用户年龄</td>
+                                        <td>${onedata.user_age}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>用户性别</td>
+                                        <td>${onedata.user_gender}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>用户照片</td>
+                                        <td>${onedata.user_photo}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>其他信息</td>
+                                        <td>${onedata.user_other}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        `
+                            )
+                        }
+                    }
+                });
+            })();
+
+            (function renderWork() {
+                $.ajax({
+                    type: "GET",
+                    url: "getWorkList",
+                    async: false,
+                    timeout: 5000,
+                    dataType: 'json',
+                    success: function (data) {
+                        for (var i = 0, len = data.length; i < len; i++) {
+                            var onedata = data[i];
+                            $("#work").append(
+                                `
+                                <tr>
+                                    <td>${onedata.work_year}</td>
+                                    <td>${onedata.work_com}</td>
+                                    <td>${onedata.work_content}</td>
+                                <tr>
+
+                                `
+                            )
+                        }
+                    }
+                });
+            })();
+
+            (function renderPrize() {
+                $.ajax({
+                    type: "GET",
+                    url: "getPrizeList",
+                    async: false,
+                    timeout: 5000,
+                    dataType: 'json',
+                    success: function (data) {
+                        for (var i = 0, len = data.length; i < len; i++) {
+                            var onedata = data[i];
+                            $("#prize").append(
+                                `
+                                <tr>
+                                    <td>${onedata.prize_date}</td>
+                                    <td>${onedata.prize_title}</td>
+                                    <td>${onedata.prize_content}</td>
+                                <tr>
+
+                                `
+                            )
+                        }
+                    }
+                });
+            })();
+        </script>
+    </body>
+
+    </html>
